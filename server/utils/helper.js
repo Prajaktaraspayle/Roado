@@ -2,19 +2,37 @@ const axios = require('axios')
 require('dotenv').config()
 
 //app key and app id provided by oxford
-app_id = process.env.oxfordAppId
-app_key = process.env.oxfordAppKey
-
+const app_id = process.env.oxfordAppId
+const app_key = process.env.oxfordAppKey
+const fields = "pronunciations,definitions,etymologies,examples"
+const strictMatch = "false";
+const wordId = "ace"
 //oxford API base url
 oxfordBaseUrl = 'https://od-api.oxforddictionaries.com/api/v2/'
 
 //function to get details of words
-const getWordDetail = async (word) => {
+const getWordDetail = async () => {
     const options = {
+        host: 'od-api.oxforddictionaries.com',
+        port : 443,
+        path: `/api/v2/entries/en-gb/${wordId}?fields=${fields}&strictMatch=${strictMatch}`,
         method: 'GET',
-        headers: { 'content-type': 'application/json', app_id, app_key },
-        url: `${oxfordBaseUrl}entries/en-us/${word}?fields=definitions,etymologies,examples&strictMatch=true`
+        headers: {
+            'app_id': app_id,
+            'app_key': app_key
+        }
     }
+
+    http.get(options, (res) => {
+        let body = ''
+        res.on('data', (chunk) => {
+            body += chunk
+        })
+        res.on('end', () => {
+            let parsed = JSON.stringify(body)
+            console.log(parsed)
+        })
+    })
 
     //definig an empty object
     let wordObj = {}
