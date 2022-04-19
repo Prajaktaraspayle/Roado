@@ -29,7 +29,7 @@ class AddWordModal extends Component {
             this.setState({ loading: true })
             this.props.handleAddWord(this.state.input)
                 .then(res => {
-                    if (!res.word) this.props.enqueueSnackbar("Unable to add new word")
+                    if (res.word) this.props.enqueueSnackbar("Unable to add new word")
                     else this.props.enqueueSnackbar("New word is added to dictionary")
                     this.props.handleClose()
                     this.setState({ loading: false })
@@ -37,6 +37,7 @@ class AddWordModal extends Component {
                 .catch(() => this.props.enqueueSnackbar("Unable to add new word"))
         }
     }
+  
 
     render() {
         const { open, handleClose } = this.props
