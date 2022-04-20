@@ -10,6 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { withSnackbar } from 'notistack'
 import { handleAddWord } from '../actions/word'
 
+
 class AddWordModal extends Component {
     state = {
         input: '',
@@ -24,20 +25,29 @@ class AddWordModal extends Component {
         else this.setState({ isDuplicate })
     }
 
-    handleAddBtn(e) {
-        if (this.state.input !== '') {
-            this.setState({ loading: true })
-            this.props.handleAddWord(this.state.input)
-                .then(res => {
-                    if (res.word) this.props.enqueueSnackbar("Unable to add new word")
-                    else this.props.enqueueSnackbar("New word is added to dictionary")
-                    this.props.handleClose()
-                    this.setState({ loading: false })
-                })
-                .catch(() => this.props.enqueueSnackbar("Unable to add new word"))
-        }
+    onClose = () => {
+        this.setState({ input: '' })
+        
     }
+    handleAddBtn(e) {
+        e.preventDefault()
+  this.setState({ loading: true })
+  this.props.handleAddWord(this.state.word)
+      .then((res) => {
+       
+        if (res.word) {
+            this.setState({ loading: false })
+            this.props.enqueueSnackbar('Word already exists', { variant: 'error' })
+        } else {
+            this.setState({ loading: false })
+            this.props.enqueueSnackbar('Word added', { variant: 'success' })
+           console.log(res)
+        }
+    })
+}
+
   
+
 
     render() {
         const { open, handleClose } = this.props

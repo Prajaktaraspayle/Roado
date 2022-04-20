@@ -14,6 +14,7 @@ export const addWord = (word) => {
     return {
         type: ADD_NEW_WORD,
         word
+
     }
 }
 
@@ -24,7 +25,7 @@ export const handleAddWord = (word) => {
     }
 }
 
-export const handleInitialData = (words) => {
+export const handleInitialData = () => {
     return dispatch => {
         return getAllWords()
             .then(words => dispatch(receiveWords(words)))

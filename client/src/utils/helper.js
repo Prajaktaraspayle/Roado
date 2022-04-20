@@ -46,3 +46,4 @@ export const addNewWord = async (word) => {
     console.log(result.data.addWord);
     return result.data.addWord
 }
+
