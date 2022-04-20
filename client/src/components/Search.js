@@ -62,9 +62,17 @@ class Search extends Component {
                     <h4 className="heading">Search Result</h4>
                     <Divider />
                     <div className="word-container">
-                        {words.map(word => (
-                            <WordCard key={word.word} handleClick={() => this.handleClick(word.word)} word={word} />
-                        ))}
+                        {
+                            words.length > 0 ?
+                                words.map((word, index) => (
+                                    <WordCard key={index} handleClick={() => this.handleClick(word.word)} word={word} />
+                                ))
+                                :
+                              
+                                <div className="noResult">
+                                    <p>No Result</p>
+                                </div>
+                        }
                     </div>
                     <WordDetail word={modalData} handleClose={this.toggleModal.bind(this)} open={openDetailModal} />
                 </div>
