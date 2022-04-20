@@ -66,14 +66,12 @@ class AddWordModal extends Component {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    {this.state.loading ? <CircularProgress /> : <Button onClick={this.handleAddBtn.bind(this)} color="primary">
+                        Add
+                    </Button>}
+                    <Button onClick={this.onClose.bind(this)} color="primary">
                         Cancel
                     </Button>
-                    {this.state.loading ?
-                        (<Button><CircularProgress color="secondary" /></Button>) :
-                        (<Button disabled={this.state.isDuplicate} onClick={(e) => this.handleAddBtn(e)} color="primary">
-                            Add
-                        </Button>)}
                 </DialogActions>
             </Dialog >
         )
