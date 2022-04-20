@@ -4,7 +4,7 @@ const http = require('http')
 //app key and app id provided by oxford
 const app_id = process.env.oxfordAppId
 const app_key = process.env.oxfordAppKey
-const fields = "pronunciations,definitions,etymologies,examples"
+const fields = "definitions"
 const strictMatch = "false";
 const wordId = "ace"
 //oxford API base url
@@ -15,7 +15,7 @@ const getWordDetail = async () => {
     const options = {
         host: 'od-api.oxforddictionaries.com',
         port : 443,
-        path: `/api/v2/entries/en-gb/${wordId}?fields=${fields}&strictMatch=${strictMatch}`,
+        path: `/api/v2/entries/en-us/${wordId}?fields=${fields}&strictMatch=${strictMatch}`,
         method: 'GET',
         headers: {
             'app_id': app_id,
