@@ -11,12 +11,12 @@ const app = express();
 app.use(cors());
 
 //connect to mongodb
-mongoose.connect(
-  "mongodb+srv://jishanpatel7815:5Wfz2GcQhYkYm1JG@cluster0.gdzko.mongodb.net/Dictionary?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(process.env.mongodbUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 //check the mongodb connection
-mongoose.connection.once("open", () => console.log("Connected to database"));
+mongoose.connection.once("open", () => console.log("Connected to database..💻🌍"));
 
 //use graphql as middleware
 app.use(

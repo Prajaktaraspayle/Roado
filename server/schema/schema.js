@@ -58,10 +58,14 @@ const Mutation = new GraphQLObjectType({
                 word: { type: new GraphQLNonNull(GraphQLString) }
             },
             async resolve(parent, args) {
-                let wordDetail = await getWordDetail(args.word)
-                if (!wordDetail) return false
-                let word = new Word(wordDetail)
-                return word.save()
+                const word = await getWordDetail(args.word)
+                if (!word) return null
+                const newWord = new Word({
+                    word: word.word,
+                    entries: word.entries
+                })
+                const result = await newWord.save()
+                return result
             }
         }
     }

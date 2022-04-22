@@ -42,8 +42,7 @@ export const addNewWord = async (word) => {
                 }
             }`
         })
-    if (result.data.addWord.word === null) return false
+    
     console.log(result.data.addWord);
     return result.data.addWord
 }
-

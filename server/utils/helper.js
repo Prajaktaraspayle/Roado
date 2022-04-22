@@ -27,6 +27,8 @@ async function getWordDetail() {
     try {
         //parsing the response
         let {data} = await axios(options)
+        console.log(data)
+       
         wordObj.word = data.results[0].word
         wordObj.entries = [];
         //parsing the entries

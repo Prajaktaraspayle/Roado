@@ -43,7 +43,7 @@ class Words extends Component {
                 <h4 className="heading">{this.props.text}</h4>
                 <Divider />
                 <div className="word-container">
-                    {words.map((word , index) => (
+                    {words.map((word,index) => (
                         <WordCard key={index} handleClick={() => this.handleClick(word.word)} word={word} />
                     ))}
                 </div>

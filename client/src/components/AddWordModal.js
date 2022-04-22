@@ -66,16 +66,17 @@ class AddWordModal extends Component {
                     />
                 </DialogContent>
                 <DialogActions>
-                    {this.state.loading ? <CircularProgress /> : <Button onClick={this.handleAddBtn.bind(this)} color="primary">
-                        Add
-                    </Button>}
-                    <Button onClick={this.onClose.bind(this)} color="primary">
+                    <Button onClick={this.onClose} color="primary">
                         Cancel
                     </Button>
+                    <Button onClick={this.handleAddBtn.bind(this)} color="primary">
+                        {this.state.loading ? <CircularProgress size={24} /> : 'Add'}
+                    </Button>
                 </DialogActions>
-            </Dialog >
+            </Dialog>
         )
     }
+            
 }
 
 const mapStateToProps = (words) => {
