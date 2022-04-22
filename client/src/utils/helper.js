@@ -30,8 +30,8 @@ export const addNewWord = async (word) => {
     const result = await client
         .mutate({
             mutation: gql`
-            mutation{
-                addWord(word:"${word}"){
+            mutation {
+                addWord(word: "${word}"){
                     word
                     entries{
                         partOfSpeech
@@ -42,7 +42,5 @@ export const addNewWord = async (word) => {
                 }
             }`
         })
-    
-    console.log(result.data.addWord);
     return result.data.addWord
 }

@@ -7,7 +7,9 @@ const app_key = process.env.oxfordAppKey
 const fields = 'definitions,examples,pronunciations,etymologies,variantForms'
 const strictMatch = "false";
 oxfordBaseUrl = 'https://od-api.oxforddictionaries.com/api/v2/'
-const word = 'rose'
+
+
+
 //oxford API base url
 
 async function getWordDetail() {
