@@ -44,6 +44,10 @@ class AddWordModal extends Component {
            console.log(res)
         }
     })
+    .catch((err) => {
+        this.setState({ loading: false })
+        this.props.enqueueSnackbar('word is already exist', { variant: 'error' })
+    })
 }
 
   
