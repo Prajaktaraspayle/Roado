@@ -8,11 +8,9 @@ const fields = 'definitions,examples,pronunciations,etymologies,variantForms'
 const strictMatch = "false";
 oxfordBaseUrl = 'https://od-api.oxforddictionaries.com/api/v2/'
 
-
-
 //oxford API base url
 
-async function getWordDetail() {
+async function getWordDetail(word) {
     const options = {
         method: 'GET',
         url: oxfordBaseUrl + 'entries/en-us/' + word + '?fields=' + fields + '&strictMatch=' + strictMatch,

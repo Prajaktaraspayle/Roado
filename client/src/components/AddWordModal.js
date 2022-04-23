@@ -35,7 +35,7 @@ class AddWordModal extends Component {
   this.props.handleAddWord(this.state.word)
       .then((res) => {
        
-        if (res.word) {
+        if (!res.word) {
             this.setState({ loading: false })
             this.props.enqueueSnackbar('Word already exists', { variant: 'error' })
         } else {
