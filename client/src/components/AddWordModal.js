@@ -32,7 +32,7 @@ class AddWordModal extends Component {
     handleAddBtn(e) {
         e.preventDefault()
   this.setState({ loading: true })
-  this.props.handleAddWord(this.state.word)
+  this.props.handleAddWord(this.state.input)
       .then((res) => {
        
         if (!res.word) {

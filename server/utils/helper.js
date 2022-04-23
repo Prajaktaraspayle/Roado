@@ -37,7 +37,7 @@ async function getWordDetail(word) {
                 partOfSpeech: lexicalEntry.lexicalCategory.text,
                 origin: lexicalEntry.entries[0].etymologies,
                 definitions: lexicalEntry.entries[0].senses[0].definitions,
-                examples: lexicalEntry.entries[0].senses[0].examples.map(example => example.text)
+                examples: lexicalEntry.entries[0].senses[0].examples && lexicalEntry.entries[0].senses[0].examples.map(example => example.text)
             })
         
         })
