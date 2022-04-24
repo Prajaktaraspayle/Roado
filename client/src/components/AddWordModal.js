@@ -35,19 +35,21 @@ class AddWordModal extends Component {
   this.props.handleAddWord(this.state.input)
       .then((res) => {
        
-        if (!res.word) {
-            this.setState({ loading: false })
-            this.props.enqueueSnackbar('Word already exists', { variant: 'error' })
-        } else {
-            this.setState({ loading: false })
-            this.props.enqueueSnackbar('Word added', { variant: 'success' })
-           console.log(res)
-        }
-    })
-    .catch((err) => {
-        this.setState({ loading: false })
-        this.props.enqueueSnackbar('word is already exist', { variant: 'error' })
-    })
+        this.props.enqueueSnackbar(`${this.state.input} added successfully`, {
+          variant: 'success',
+          autoHideDuration: 2000,
+        })
+        this.setState({ input: '', loading: false })
+      }
+        )
+        .catch((err) => {
+            this.props.enqueueSnackbar(`${this.state.input} already exists`, {
+                variant: 'error',
+                autoHideDuration: 2000,
+            })
+            this.setState({ input: '', loading: false })
+            })
+        
 }
 
   
