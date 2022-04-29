@@ -9,9 +9,14 @@ export default function MediaCard(props) {
         <Card>
             <CardActionArea onClick={props.handleClick}>
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.word.word}
-                    </Typography>
+                   {
+                          props.word.word ? <Typography variant="h5" component="h2">
+                                {props.word.word}
+                            </Typography> : <Typography variant="h5" component="h2">
+                                <h2>Word is Not valid</h2>
+                            </Typography>
+
+                   }
                     <Typography variant="body2" color="textSecondary" component="div">
                         {props.word.entries && props.word.entries.map((entry, index) => (
                             <p style={{ marginTop: 10 }} key={index}>({entry.partOfSpeech}) {entry.definitions[0]}</p>
