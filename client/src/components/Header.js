@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <div className="header">
             <Typography className="logo" variant="h6">
-                Vocab
+                Dictionary Search 
             </Typography>
             <Link to='/search'>
                 <IconButton aria-label="search" color="inherit">
