@@ -1,11 +1,11 @@
-## Vocab App
+## Dictionary
 Vocab App is a mern stack web app to improve the vocabulary.
 
 ## Setup
 
 ### 1. Clone the Repository
 ```
-git clone https://github.com/abhi3315/vocab-mern-stack
+git clone https://github.com/manasi123456/Roado.git
 ```
 
 ### 2. Setting Up GraphQL server
