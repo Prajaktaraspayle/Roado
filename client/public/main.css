@@ -21,7 +21,7 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(14, 12, 12);
+    color: whitesmoke;
 }
 
 .logo {
@@ -31,7 +31,7 @@ a {
 .container {
     width: 100%;
     padding-top: 10px;
-    background-color: rgb(131, 143, 140);
+    background-color: white;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
